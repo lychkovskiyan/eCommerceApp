@@ -2,6 +2,29 @@
     padding-top: 2px;
 }
 
+.navigation-menu {
+  display: flex;
+}
+
+.number-prod-cart .fa-stack-1x {
+  top: 0;
+}
+
+.number-prod-cart .fa-3x {
+  background: #6f9a37;
+  border-radius: 100%;
+  font-size: 1em;
+  padding: 4px;
+  text-align: center;
+}
+
+@media (min-width: 768px)
+{
+  .navbar-toggle {
+    display: none;
+  }
+}
+
 /***MENU***/
 /*----------------------------------------*/
 /*  2.2	Main menu area CSS
