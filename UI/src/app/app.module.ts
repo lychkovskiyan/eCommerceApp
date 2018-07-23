@@ -2,7 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RouterModule } from '@angular/router'
+import { RouterModule } from '@angular/router';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { UserService } from './shared/user.service';
@@ -15,6 +16,8 @@ import { SignUpComponent } from './user/sign-up/sign-up.component';
 import { appRoutes } from './routes';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
+import { TopNavComponent } from './top-nav/top-nav.component';
+import { NavigationComponent } from './navigation/navigation.component';
 
 
 @NgModule({
@@ -23,7 +26,9 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     SignUpComponent,
     UserComponent,
     SignInComponent,
-    HomeComponent
+    HomeComponent,
+    TopNavComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +38,7 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [UserService,AuthGuard,
+  providers: [UserService, AuthGuard,
     ,
     {
       provide : HTTP_INTERCEPTORS,
