@@ -1,7 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
-/* @import '~bootstrap/dist/css/bootstrap.min.css'; */
+:root {
+    --input-padding-x: .75rem;
+    --input-padding-y: .75rem;
+}
 
-body,
+ul {
+    margin-bottom: 0px;
+}
+
+/*body,
 html {
   background: #fff;
 }
@@ -77,7 +83,7 @@ p {
   visibility: hidden;
   height: 0px;
 }
-
+*/
 /*Scroll*/
 .dropdown-prod-cart {
   max-height: 500px;
@@ -129,7 +135,7 @@ ul.scroll-menu {
 
 
 
-
+/*
 button.btn-submit{
     background-color: #38547b;
     color: #fff;
@@ -143,25 +149,10 @@ input.ng-invalid.ng-dirty{
     border-bottom-color : #e91e63 !important;
     box-shadow: 0 1px 0 0 #e91e63 !important;
 }
+*/
 /*for error div i*/
+/*
 div.error-message i{
     vertical-align: middle !important;
 }
-
-/*for tab control*/
-.tabs{
-    height: 65px;
-}
-.tabs .tab{
-    text-transform : none !important;
-    line-height: 65px;
-    height: 65px;
-}
-.tabs .tab a{
-    font-size: 25px;
-    color: grey !important;
-}
-
-.tabs .tab a.active{
-    background-color: #fff !important;
-}
+*/

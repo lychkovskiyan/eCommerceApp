@@ -7,13 +7,15 @@ import { AuthGuard } from './auth/auth.guard';
 
 export const appRoutes: Routes = [
     { path: 'home', component: HomeComponent },
-    {
+    { path: 'signup', component: SignUpComponent},
+    { path: 'signin', component: SignInComponent},
+    /* {
         path: 'signup', component: UserComponent,
         children: [{ path: '', component: SignUpComponent }]
     },
     {
         path: 'login', component: UserComponent,
         children: [{ path: '', component: SignInComponent }]
-    },
+    }, */
     { path : '', redirectTo: '/home', pathMatch : 'full'}
 ];

@@ -1,33 +1,50 @@
-<form class="col s12 white" #userRegistrationForm="ngForm" (ngSubmit)="OnSubmit(userRegistrationForm)">
-  <div class="row">
-    <div class="input-field col s6">
-      <input class="validate" type="text" name="UserName" #UserName="ngModel" [(ngModel)]="user.UserName" required>
-      <label data-error="Required field!">UserName</label>
-    </div>
-    <div class="input-field col s6">
-      <input class="validate" type="password" name="Password" #Password="ngModel" [(ngModel)]="user.Password" required minlength="3">
-      <label [attr.data-error]="Password.errors!=null?(Password.errors.required?'Required field!':'Minimum 3 characters needed'):''">Password</label>
-    </div>
+<app-top-nav></app-top-nav>
+<app-navigation></app-navigation>
+
+<form class="form-signup" novalidate [formGroup]="signUpForm" (submit)="submitForm($event);">
+  <div class="text-center mb-4">
+    <!-- <img class="mb-4" src="https://getbootstrap.com/docs/4.1/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"> -->
+    <h1 class="h1 mb-3 font-weight-normal">Sign Up</h1>
   </div>
-  <div class="row">
-    <div class="input-field col s12">
-      <input class="validate" type="text" name="Email" #Email="ngModel" [(ngModel)]="user.Email" [pattern]="emailPattern">
-      <label data-error="Invalid email!">Email</label>
-    </div>
+
+  <div class="form-label-group">
+    <input type="text" id="inputUserName" class="form-control" placeholder="UserName" formControlName="userName">
+    <label for="inputUserName">User Name</label>
   </div>
-  <div class="row">
-    <div class="input-field col s6">
-      <input type="text" name="FirstName" #FirstName="ngModel" [(ngModel)]="user.FirstName">
-      <label>First Name</label>
+
+  <fieldset formGroupName="passwords">
+    <div class="form-label-group">
+      <input type="password" id="inputPassword" class="form-control" placeholder="Password"  formControlName="password">
+      <label for="inputPassword">Password</label>
     </div>
-    <div class="input-field col s6">
-      <input type="text" name="LastName" #LastName="ngModel" [(ngModel)]="user.LastName">
-      <label>Last Name</label>
+
+    <div class="form-label-group">
+      <input type="password" id="inputPasswordConfirm" class="form-control" placeholder="PasswordConfirm"  formControlName="passwordConfirm">
+      <label for="inputPasswordConfirm">Password Confirm</label>
     </div>
+</fieldset>
+
+  <div class="form-label-group">
+    <input type="text" id="inputEmail" class="form-control" placeholder="Email"  formControlName="email">
+    <label for="inputEmail">Email</label>
   </div>
-  <div class="row">
-    <div class="input-field col s12">
-      <button [disabled]="!userRegistrationForm.valid" class="btn-large btn-submit" type="submit">Submit</button>
-    </div>
+  <div *ngIf="signUpForm.controls['email'].errors && !signUpForm.controls['email'].pristine" class="error-msg">
+    <div [hidden]="!signUpForm.controls['email'].errors.required">Email is required.</div>
+    <div [hidden]="!signUpForm.controls['email'].errors.patternInvalid">Email is invalid.</div>
   </div>
+
+  <div class="form-label-group">
+    <input type="text" id="inputFirstName" class="form-control" placeholder="FirstName"  formControlName="firstName">
+    <label for="inputFirstName">First Name</label>
+  </div>
+  <div *ngIf="signUpForm.controls['firstName'].errors && !signUpForm.controls['firstName'].pristine" class="error-msg">
+    <div [hidden]="!signUpForm.controls['firstName'].errors.required">First name is required.</div>
+  </div>
+
+  <div class="form-label-group">
+    <input type="text" id="inputLastName" class="form-control" placeholder="LastName"  formControlName="lastName">
+    <label for="inputLastName">Last Name</label>
+  </div>
+
+  <button [disabled]="!signUpForm.valid" class="btn btn-lg btn-success btn-block" type="submit">Sign Up!</button>
 </form>
