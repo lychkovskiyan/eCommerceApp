@@ -5,7 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { UserService } from './shared/user.service';
+import { UserService } from './shared/services/user.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { UserComponent } from './user/user.component';
@@ -15,8 +15,8 @@ import { SignUpComponent } from './user/sign-up/sign-up.component';
 import { appRoutes } from './routes';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
-import { TopNavComponent } from './top-nav/top-nav.component';
-import { NavigationComponent } from './navigation/navigation.component';
+import { TopNavComponent } from './home/top-nav/top-nav.component';
+import { NavigationComponent } from './home/navigation/navigation.component';
 
 
 @NgModule({

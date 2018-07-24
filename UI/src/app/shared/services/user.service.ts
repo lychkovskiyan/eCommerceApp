@@ -3,15 +3,15 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Response } from '@angular/http';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
-import { User } from './user.model';
+/* import { User } from './user.model'; */
 
 @Injectable()
 export class UserService {
   readonly rootUrl = 'http://localhost:35257';
   constructor(private http: HttpClient) { }
 
-  registerUser(user: User) {
-    const body: User = {
+  registerUser(user: IUser) {
+    const body: IUser = {
       UserName: user.UserName,
       Password: user.Password,
       Email: user.Email,

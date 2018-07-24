@@ -1,4 +1,4 @@
-export class User {
+interface IUser {
     UserName: string;
     Password: string;
     Email: string;
