@@ -10,35 +10,66 @@
   <div class="form-label-group">
     <input type="text" id="inputUserName" class="form-control" placeholder="UserName" formControlName="userName">
     <label for="inputUserName">User Name</label>
+    <div class="error" *ngIf="signUpForm.get('userName').hasError('required') && signUpForm.get('userName').touched">
+      Name is required
+    </div>
+    <div class="error" *ngIf="signUpForm.get('userName').hasError('minlength') && signUpForm.get('userName').touched">
+      Minimum of 2 characters
+    </div>
+    <div class="error" *ngIf="signUpForm.get('userName').hasError('maxlength') && signUpForm.get('userName').touched">
+      Maximum of 15 characters
+    </div>
   </div>
-
-  <fieldset formGroupName="passwords">
+  
+  <div formGroupName="passwords">
     <div class="form-label-group">
       <input type="password" id="inputPassword" class="form-control" placeholder="Password"  formControlName="password">
       <label for="inputPassword">Password</label>
+      <div class="error" *ngIf="signUpForm.get('passwords').get('password').hasError('required') && signUpForm.get('passwords').get('password').touched">
+        Password is required
+      </div>
+      <div class="error" *ngIf="signUpForm.get('passwords').get('password').hasError('minlength') && signUpForm.get('passwords').get('password').touched">
+        Minimum of 6 characters
+      </div>
+      <div class="error" *ngIf="signUpForm.get('passwords').get('password').hasError('maxlength') && signUpForm.get('passwords').get('password').touched">
+        Maximum of 20 characters
+      </div>
     </div>
+    
 
     <div class="form-label-group">
       <input type="password" id="inputPasswordConfirm" class="form-control" placeholder="PasswordConfirm"  formControlName="passwordConfirm">
       <label for="inputPasswordConfirm">Password Confirm</label>
+      <div class="error" *ngIf="signUpForm.get('passwords').get('passwordConfirm').hasError('required') && signUpForm.get('passwords').get('passwordConfirm').touched">
+        Password Confirm is required
+      </div>
+      <div class="error" *ngIf="signUpForm.get('passwords').get('passwordConfirm').hasError('minlength') && signUpForm.get('passwords').get('passwordConfirm').touched">
+        Minimum of 6 characters
+      </div>
+      <div class="error" *ngIf="signUpForm.get('passwords').get('passwordConfirm').hasError('maxlength') && signUpForm.get('passwords').get('passwordConfirm').touched">
+        Maximum of 20 characters
+      </div>
+      <div class="error" *ngIf="signUpForm.get('passwords').hasError('nomatch') && signUpForm.get('passwords').get('password').touched && signUpForm.get('passwords').get('passwordConfirm').touched">
+        Passwords are not equal
+      </div>
     </div>
-</fieldset>
+    
+  </div>
 
   <div class="form-label-group">
     <input type="text" id="inputEmail" class="form-control" placeholder="Email"  formControlName="email">
     <label for="inputEmail">Email</label>
+    <div class="error" *ngIf="signUpForm.get('email').hasError('required') && signUpForm.get('email').touched">
+      Email is required
+    </div>
+    <div class="error" *ngIf="signUpForm.get('email').hasError('pattern') && signUpForm.get('email').touched">
+      Email are not correct
+    </div>
   </div>
-  <div *ngIf="signUpForm.controls['email'].errors && !signUpForm.controls['email'].pristine" class="error-msg">
-    <div [hidden]="!signUpForm.controls['email'].errors.required">Email is required.</div>
-    <div [hidden]="!signUpForm.controls['email'].errors.patternInvalid">Email is invalid.</div>
-  </div>
-
+  
   <div class="form-label-group">
     <input type="text" id="inputFirstName" class="form-control" placeholder="FirstName"  formControlName="firstName">
     <label for="inputFirstName">First Name</label>
-  </div>
-  <div *ngIf="signUpForm.controls['firstName'].errors && !signUpForm.controls['firstName'].pristine" class="error-msg">
-    <div [hidden]="!signUpForm.controls['firstName'].errors.required">First name is required.</div>
   </div>
 
   <div class="form-label-group">

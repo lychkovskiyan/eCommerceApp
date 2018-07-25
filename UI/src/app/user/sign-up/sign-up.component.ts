@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, ValidatorFn,
-  Validators
-} from '@angular/forms';
+import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { UserService } from '../../shared/services/user.service';
 
@@ -17,16 +14,15 @@ export class SignUpComponent implements OnInit {
   public userData: IUser = null;
 
   constructor(private formBuilder: FormBuilder, private userService: UserService, private toastr: ToastrService) {
-    const pwdValidators: ValidatorFn[] = [Validators.required, Validators.minLength(6), Validators.maxLength(20)];
 
     this.signUpForm = formBuilder.group({
-      userName: ['', [Validators.required, this.userNameValidator()]],
+      userName: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(15)]],
       passwords: formBuilder.group({
-        password: ['', pwdValidators],
-        passwordConfirm: ['', pwdValidators]
-      }, {validator: this.passwordsAreEqual()}),
+        password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(20)]],
+        passwordConfirm: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(20)]]
+      }, { validator: this.passwordsAreEqual()}),
       email: ['', [Validators.required, Validators.pattern(this.emailPattern)]],
-      firstName: ['', Validators.required],
+      firstName: [''],
       lastName: ['']
     });
   }
@@ -56,7 +52,7 @@ export class SignUpComponent implements OnInit {
         return null;
       }
       return {
-        custom: 'Passwords are not equal'
+        nomatch: true
       };
     };
   }

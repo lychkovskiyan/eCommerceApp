@@ -1,3 +1,9 @@
+.error {
+    padding-left: 12px;
+    color: red;
+    font-size: 14px;
+}
+
 .form-signup {
     width: 100%;
     max-width: 420px;
