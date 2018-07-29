@@ -15,8 +15,9 @@ import { SignUpComponent } from './user/sign-up/sign-up.component';
 import { appRoutes } from './routes';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
-import { TopNavComponent } from './home/top-nav/top-nav.component';
-import { NavigationComponent } from './home/navigation/navigation.component';
+import { TopNavComponent } from './shared/components/top-navigation/top-navigation.component';
+import { NavigationComponent } from './shared/components/navigation/navigation.component';
+import { SubscribeComponent } from './shared/components/subscribe/subscribe.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { NavigationComponent } from './home/navigation/navigation.component';
     SignInComponent,
     HomeComponent,
     TopNavComponent,
-    NavigationComponent
+    NavigationComponent,
+    SubscribeComponent
   ],
   imports: [
     BrowserModule,

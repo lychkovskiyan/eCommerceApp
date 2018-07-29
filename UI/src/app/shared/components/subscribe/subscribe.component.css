@@ -1,0 +1,35 @@
+.newsletters-title {
+    z-index: 9999;
+    position: relative;
+    font-weight: 700;
+    color: #222;
+    padding-top: 30px;
+    font-size: 25px;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    text-transform: uppercase;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+.form-label-group {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.btn-block {
+    display: inline;
+    width: 25%;
+}
+
+.controls {
+    text-align: right;
+    padding-right: 0px;
+}
+
+img {
+    width: 350px;
+    float: right;
+}
