@@ -18,6 +18,7 @@ import { AuthInterceptor } from './auth/auth.interceptor';
 import { TopNavComponent } from './shared/components/top-navigation/top-navigation.component';
 import { NavigationComponent } from './shared/components/navigation/navigation.component';
 import { SubscribeComponent } from './shared/components/subscribe/subscribe.component';
+import { FooterComponent } from './shared/components/footer/footer.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { SubscribeComponent } from './shared/components/subscribe/subscribe.comp
     HomeComponent,
     TopNavComponent,
     NavigationComponent,
-    SubscribeComponent
+    SubscribeComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
